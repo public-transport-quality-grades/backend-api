@@ -1,0 +1,11 @@
+{
+  "generator-openapi-repo": {
+    "importExistingSpec": true,
+    "importedSpec": "oevgk18-spec/apispec.json",
+    "name": "OeVGK18 Backend",
+    "repo": "public-transport-quality-grades/backend-api",
+    "splitSpec": false,
+    "samples": false,
+    "installSwaggerUI": true
+  }
+}
