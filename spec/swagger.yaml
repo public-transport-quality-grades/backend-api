@@ -1,1 +1,109 @@
-{"definitions":{"AvailableGrading":{"properties":{"due_date":{"format":"date","type":"string"},"id":{"format":"int32","type":"integer"},"tile_name":{"type":"string"},"time_interval":{"properties":{"end":{"type":"string"},"start":{"type":"string"},"time_description":{"type":"string"}},"required":["end","start","time_description"],"type":"object"},"type_of_day":{"type":"string"}},"required":["due_date","id","tile_name","time_interval","type_of_day"],"type":"object"}},"info":{"title":"OeVGK18 Backend","version":"1.0"},"parameters":{},"paths":{"/api/gradings":{"get":{"parameters":[{"description":"Type of day to filter for, e.g. Working Day, Saturday","in":"query","name":"typeOfDay","required":true,"type":"string"}],"responses":{"200":{"description":"An available grading","schema":{"$ref":"#/definitions/AvailableGrading"}},"400":{"description":"Parameter typeOfDay is missing"},"404":{"description":"No gradings for this type of day found"}},"summary":"Get all available gradings for a specific type of day (e.g. \"Working Day\", \"Saturday\", ...)."}},"/api/typesOfDays":{"get":{"responses":{"200":{"description":"A list of types of days for which there are gradings","schema":{"properties":{"days":{"items":{"type":"string"},"type":"array"}},"type":"object"}}},"summary":"Get all types of days (working day, saturday, sunday, etc.) for which there are gradings"}}},"swagger":"2.0","tags":[]}
+{
+  "definitions": {
+    "AvailableGrading": {
+      "properties": {
+        "due_date": {
+          "format": "date", 
+          "type": "string"
+        }, 
+        "id": {
+          "format": "int32", 
+          "type": "integer"
+        }, 
+        "tile_name": {
+          "type": "string"
+        }, 
+        "time_interval": {
+          "properties": {
+            "end": {
+              "type": "string"
+            }, 
+            "start": {
+              "type": "string"
+            }, 
+            "time_description": {
+              "type": "string"
+            }
+          }, 
+          "required": [
+            "end", 
+            "start", 
+            "time_description"
+          ], 
+          "type": "object"
+        }, 
+        "type_of_day": {
+          "type": "string"
+        }
+      }, 
+      "required": [
+        "due_date", 
+        "id", 
+        "tile_name", 
+        "time_interval", 
+        "type_of_day"
+      ], 
+      "type": "object"
+    }
+  }, 
+  "info": {
+    "title": "OeVGK18 Backend", 
+    "version": "1.0"
+  }, 
+  "parameters": {}, 
+  "paths": {
+    "/api/gradings": {
+      "get": {
+        "description": "Get all available gradings for a specific type of day (working day, saturday, sunday, etc.).<br/>", 
+        "parameters": [
+          {
+            "description": "Type of day to filter for, e.g. Working Day, Saturday", 
+            "in": "query", 
+            "name": "typeOfDay", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "responses": {
+          "200": {
+            "description": "An available grading", 
+            "schema": {
+              "$ref": "#/definitions/AvailableGrading"
+            }
+          }, 
+          "400": {
+            "description": "Parameter typeOfDay is missing"
+          }, 
+          "404": {
+            "description": "No gradings for this type of day found"
+          }
+        }, 
+        "summary": "available gradings"
+      }
+    }, 
+    "/api/typesOfDays": {
+      "get": {
+        "description": "Get all types of days (working day, saturday, sunday, etc.) for which there are gradings<br/>", 
+        "responses": {
+          "200": {
+            "description": "A list of types of days for which there are gradings", 
+            "schema": {
+              "properties": {
+                "days": {
+                  "items": {
+                    "type": "string"
+                  }, 
+                  "type": "array"
+                }
+              }, 
+              "type": "object"
+            }
+          }
+        }, 
+        "summary": "types of days"
+      }
+    }
+  }, 
+  "swagger": "2.0", 
+  "tags": []
+}

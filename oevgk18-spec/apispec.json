@@ -54,6 +54,7 @@
   "paths": {
     "/api/gradings": {
       "get": {
+        "description": "Get all available gradings for a specific type of day (working day, saturday, sunday, etc.).<br/>", 
         "parameters": [
           {
             "description": "Type of day to filter for, e.g. Working Day, Saturday", 
@@ -77,11 +78,12 @@
             "description": "No gradings for this type of day found"
           }
         }, 
-        "summary": "Get all available gradings for a specific type of day (e.g. \"Working Day\", \"Saturday\", ...)."
+        "summary": "available gradings"
       }
     }, 
     "/api/typesOfDays": {
       "get": {
+        "description": "Get all types of days (working day, saturday, sunday, etc.) for which there are gradings<br/>", 
         "responses": {
           "200": {
             "description": "A list of types of days for which there are gradings", 
@@ -98,7 +100,7 @@
             }
           }
         }, 
-        "summary": "Get all types of days (working day, saturday, sunday, etc.) for which there are gradings"
+        "summary": "types of days"
       }
     }
   }, 
